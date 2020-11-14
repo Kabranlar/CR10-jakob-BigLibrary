@@ -15,6 +15,13 @@
 		$publisher_size = $_POST["publisher_size"];
 		$status = $_POST["status"];
 
+		$title = mysqli_real_escape_string($conn, $title);
+        $author_fName = mysqli_real_escape_string($conn, $author_fName);
+        $author_lName = mysqli_real_escape_string($conn, $author_lName);
+        $description = mysqli_real_escape_string($conn, $description);
+        $publisher = mysqli_real_escape_string($conn, $publisher);
+        $publisher_address = mysqli_real_escape_string($conn, $publisher_address);
+
 		$sql = "INSERT INTO item(type, title, image, author_fName, author_lName, description, isbn, publication_date, publisher, publisher_address, publisher_size, status) VALUES ('$type', '$title', '$image', '$author_fName', '$author_lName', '$description', '$isbn', '$publication_date', '$publisher', '$publisher_address', '$publisher_size', '$status')";
 
 		if(mysqli_query($conn, $sql)) {
